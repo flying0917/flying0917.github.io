@@ -26,8 +26,9 @@
 		from{opacity:0;}
 		to{opacity:1;}}
 </style>
-<body style="width:auto; margin:0px auto; padding:0px center">
-<canvas width="500px" height="500px" id="canvas1" style=" background-color:#303; position:absolute; left:25px; top:600px" class="hidden">你的浏览器不支持canvas标签</canvas>
+<body>
+<div style="width:1315px; height:2300px; margin:0px auto; background:#003; position:relative;">
+<canvas width="500px" height="500px" id="canvas1" style=" background-color:#303; position:absolute; left:0px; top:600px" class="hidden">你的浏览器不支持canvas标签</canvas>
 
 <script>
 	//创建画布
@@ -176,7 +177,7 @@
 	setInterval(show,1000);
 	
 </script>
-<canvas style=" background-color:#039; position:absolute; top:608px; left:541px" width="800px" height="500px" id="canvas2" class="hidden">
+<canvas style=" background-color:#039; position:absolute; top:608px; left:516px" width="800px" height="500px" id="canvas2" class="hidden">
 	你的浏览器不支持canvas标签
 </canvas>
 <script>
@@ -261,7 +262,7 @@
 	cv2.fillRect(695,350,7,15)
 	cv2.closePath()
 </script>
-<canvas id="canvas5" style=" position:absolute; top:1110px; background-color:#930; left:25px;" width=500px height=500px class="hidden">你的浏览器不支持canvas标签</canvas>
+<canvas id="canvas5" style=" position:absolute; top:1110px; background-color:#930; left:0px;" width=500px height=500px class="hidden">你的浏览器不支持canvas标签</canvas>
 <script>
 	var m=0;
 	function eyemove()
@@ -384,7 +385,7 @@
 	}
 	setInterval(eyemove,10)
 </script>
-<canvas id="canvas3" style=" position:absolute; top:758px; left:721px; width:446px; height:290px; background-color:#003" class="hidden">你的浏览器不支持canvas标签</canvas>
+<canvas id="canvas3" style=" position:absolute; top:758px; left:696px; width:446px; height:290px; background-color:#003" class="hidden">你的浏览器不支持canvas标签</canvas>
 <script>
 	var cv3=document.getElementById("canvas3").getContext('2d')
 	function drawtrack()
@@ -515,7 +516,7 @@
 //													},erocb);	
 //	}
 </script>
-	<canvas style=" background-color:#063; position:absolute; top:1120px; left:541px" width="800px" height="500px" id="canvas4" class="hidden">
+	<canvas style=" background-color:#063; position:absolute; top:1120px; left:516px" width="800px" height="500px" id="canvas4" class="hidden">
 		你的浏览器不支持canvas标签
 	</canvas>
     <script>
@@ -700,7 +701,7 @@
 		cv4.fill()
 		cv4.closePath()
     </script>
-    <canvas width="350px" height="250px" style=" background-color:#27f1cd; position:absolute; top:1240px; left:766px" id="canvas6" class="hidden">你的浏览器不支持canvas标签</canvas>
+    <canvas width="350px" height="250px" style=" background-color:#27f1cd; position:absolute; top:1240px; left:741px" id="canvas6" class="hidden">你的浏览器不支持canvas标签</canvas>
     <script>
 	    var isDown=false
 		var canvas6=document.getElementById("canvas6")
@@ -746,7 +747,7 @@
 								isDown=false	
 							}
     </script>
-    <canvas id="canvas7" width="1315px" height="600px" style=" background-color:#003; position:absolute; top:1630px; left:25px" class="hidden"></canvas>
+    <canvas id="canvas7" width="1315px" height="600px" style=" background-color:#003; position:absolute; top:1630px; left:0px" class="hidden"></canvas>
     <script>
 	
 		var y=750
@@ -843,7 +844,7 @@
 		i=setInterval("firemove(1100,'red')",55)
 		k=setInterval("firemove(1200,'orange')",5705)
     </script>
-    <canvas id="canvas8" style=" background:#333; position:absolute; top:0px; left:25px;" width="1315px" height="600px">你的浏览器不支持canvas标签</canvas>
+    <canvas id="canvas8" style=" background:#333; position:absolute; top:0px; left:0px;" width="1315px" height="600px">你的浏览器不支持canvas标签</canvas>
     <script>
     	var canvas8=document.getElementById("canvas8")
 		var cv8=canvas8.getContext("2d")
@@ -1163,7 +1164,7 @@
 			cv8.fillText("TIP：6-5-8-9",1000,500)
 		}
     </script>
-    <input type="button" value="隐藏" style="position:absolute; top:2200px; border:#CC6; background-color:#930; left:1300px; font-family:'仿宋'; font-size:20px; " class="hidden" id="input" onClick="Hidden()">
+    <input type="button" value="隐藏" style="position:absolute; top:2200px; border:#CC6; background-color:#930; left:1240px; font-family:'仿宋'; font-size:20px; " class="hidden" id="input" onClick="Hidden()">
     <script>
     	function Hidden()
 		{
@@ -1174,5 +1175,6 @@
 			}	
 		}
     </script>
+</div>
 </body>
 </html>
