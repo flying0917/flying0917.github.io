@@ -1,0 +1,1178 @@
+<!DOCTYPE HTML><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<title>html5练习</title>
+<meta name="viewport" content="user-scalable=no,width=1315">
+</head>
+
+<style>
+    
+	.hidden
+	{
+		opacity:0;}
+	.hidden2
+	{
+		opacity:0;
+		-webkit-animation:notShow 2s}
+	@-webkit-keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}}
+	.show
+	{
+		-webkit-animation:Show 2s;}
+	@-webkit-keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}}
+</style>
+<body style="width:auto; margin:0px auto; padding:0px center">
+<canvas width="500px" height="500px" id="canvas1" style=" background-color:#303; position:absolute; left:25px; top:600px" class="hidden">你的浏览器不支持canvas标签</canvas>
+
+<script>
+	//创建画布
+	var cvs=document.getElementById('canvas1')
+	var cv= cvs.getContext('2d');
+	function show()
+	{
+		//清空画布
+		cv.clearRect(0,0,500,500);
+		//得到时间变量
+		var time=new Date();
+	
+	var m=time.getMinutes();
+	var h=time.getHours()+m/60;
+	var s=time.getSeconds();
+	cv.lineWidth=10;
+	cv.strokeStyle="black";
+	//画钟框和钟背景
+	cv.beginPath();
+	cv.arc(250,250,200,0,360,false)
+	cv.closePath();
+	cv.stroke();
+	var g=cv.createRadialGradient(280,200,0,280,300,200);
+	g.addColorStop(0,"white");
+	g.addColorStop(1,"pink");
+	cv.fillStyle=g;
+	cv.fill();
+	cv.strokeStyle="black"
+	//画分刻度
+	for(var a=0;a<60;a++)
+	{
+		cv.save()
+		cv.lineWidth=3
+		cv.translate(250,250)
+		cv.rotate(6*a*Math.PI/180);
+		cv.beginPath();
+		cv.moveTo(0,-195)
+		cv.lineTo(0,-187)
+		cv.closePath();
+		cv.stroke();
+		cv.restore();
+	}
+	cv.strokeStyle="blue"
+	//画时刻度
+	for(var a=0;a<12;a++)
+	{
+		cv.save()
+		cv.lineWidth=6
+		cv.translate(250,250)
+		cv.rotate(30*a*Math.PI/180);
+		cv.beginPath();
+		cv.moveTo(0,-195)
+		cv.lineTo(0,-180)
+		cv.closePath();
+		cv.stroke();
+		cv.restore();
+	}
+	//画时针
+	cv.save();
+	cv.lineWidth=10;
+	cv.translate(250,250);
+	cv.rotate(30*h*Math.PI/180);
+	cv.beginPath();
+	cv.moveTo(0,-120);
+	cv.lineTo(0,15);
+	cv.closePath();
+	cv.stroke();
+	cv.restore();
+	cv.save();
+	cv.lineWidth=10;
+	cv.fillStyle="blue"
+	cv.translate(250,250);
+	cv.rotate(30*h*Math.PI/180);
+	cv.beginPath();
+	cv.arc(0,-120,5,0,360,false);
+	cv.closePath();
+	cv.fill();
+	cv.restore();
+	cv.save();
+	cv.strokeStyle="white"
+	cv.lineWidth=2;
+	cv.translate(250,250);
+	cv.rotate(30*h*Math.PI/180);
+	cv.beginPath();
+	cv.moveTo(0,-120);
+	cv.lineTo(0,-80);
+	cv.closePath();
+	cv.stroke();
+	cv.restore();
+	//画分针
+	cv.save();
+	cv.lineWidth=8;
+	cv.translate(250,250);
+	cv.rotate(6*m*Math.PI/180);
+	cv.beginPath();
+	cv.moveTo(0,-175);
+	cv.lineTo(0,15);
+	cv.closePath();
+	cv.stroke();
+	cv.restore();
+	cv.save();
+	cv.fillStyle="blue";
+	cv.lineWidth=8;
+	cv.translate(250,250);
+	cv.rotate(6*m*Math.PI/180);
+	cv.beginPath();
+	cv.arc(0,-175,4,0,360,false);
+	cv.closePath();
+	cv.fill();
+	cv.restore();
+	cv.save();
+	cv.strokeStyle="white";
+	cv.lineWidth=2;
+	cv.translate(250,250);
+	cv.rotate(6*m*Math.PI/180);
+	cv.beginPath();
+	cv.moveTo(0,-175);
+	cv.lineTo(0,-100);
+	cv.closePath();
+	cv.stroke();
+	cv.restore();
+	//画秒针
+	cv.save();
+	cv.strokeStyle="black";
+	cv.lineWidth=1;
+	cv.translate(250,250);
+	cv.rotate(6*s*Math.PI/180);
+	cv.beginPath();
+	cv.moveTo(0,-180);
+	cv.lineTo(-2,15)
+	cv.lineTo(2,15);
+	cv.closePath();
+	cv.stroke();
+	cv.restore();
+	cv.lineWidth=2;
+	cv.fillStyle="red";
+	cv.beginPath();
+	cv.arc(250,250,10,0,360,false);
+	cv.closePath();
+	var g1=cv.createLinearGradient(245,250,260,250);
+	g1.addColorStop(0,"red");
+	g1.addColorStop(1,"white");
+	cv.fillStyle=g1;
+	cv.fill();
+	}
+	setInterval(show,1000);
+	
+</script>
+<canvas style=" background-color:#039; position:absolute; top:608px; left:541px" width="800px" height="500px" id="canvas2" class="hidden">
+	你的浏览器不支持canvas标签
+</canvas>
+<script>
+	//3ds游戏机
+	var cvs2=document.getElementById("canvas2")
+	var cv2=cvs2.getContext('2d')
+	cv2.beginPath()
+	cv2.arc(150,150,50,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	cv2.beginPath()
+	cv2.arc(650,150,50,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	cv2.fillRect(150,100,500,50)
+	cv2.fillRect(100,150,600,300)
+	cv2.fillStyle="gray"
+	cv2.fillRect(180,150,445,290)
+	cv2.lineWidth=5
+	cv2.fillStyle="#242427"
+	cv2.beginPath()
+	cv2.arc(400,125,10,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	cv2.beginPath()
+	cv2.arc(400,125,6,0,360,false)
+	cv2.stroke()
+	cv2.closePath()
+	cv2.beginPath()
+	cv2.arc(420,125,4,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	var j=1
+	var a=1
+	for(var i=0;i<4;i++)
+	{
+		cv2.save()
+		cv2.translate(140,250)
+		cv2.rotate(j*90*Math.PI/180)
+		cv2.beginPath()
+		cv2.arc(0,-15,3,0,360,false)
+		cv2.closePath()
+		cv2.fill()	
+		cv2.restore()
+		j++	
+	}
+	for(var i=0;i<4;i++)
+	{
+		cv2.save()
+		cv2.translate(660,250)
+		cv2.rotate(a*90*Math.PI/180)
+		cv2.beginPath()
+		cv2.arc(0,-15,3,0,360,false)
+		cv2.closePath()
+		cv2.fill()	
+		cv2.restore()
+		a++	
+	}
+	cv2.beginPath()
+	cv2.arc(140,250,3,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	cv2.beginPath()
+	cv2.arc(660,250,3,0,360,false)
+	cv2.closePath()
+	cv2.fill()
+	cv2.strokeStyle="gray"
+	cv2.lineWidth=6
+	cv2.beginPath()
+	cv2.moveTo(103,350)
+	cv2.lineTo(103,400)
+	cv2.closePath()
+	cv2.stroke()
+	cv2.beginPath()
+	cv2.moveTo(697,350)
+	cv2.lineTo(697,400)
+	cv2.closePath()
+	cv2.stroke()
+	cv2.beginPath()
+	cv2.fillStyle="white"
+	cv2.fillRect(99,350,7,15)
+	cv2.fillRect(695,350,7,15)
+	cv2.closePath()
+</script>
+<canvas id="canvas5" style=" position:absolute; top:1110px; background-color:#930; left:25px;" width=500px height=500px class="hidden">你的浏览器不支持canvas标签</canvas>
+<script>
+	var m=0;
+	function eyemove()
+	{
+		var cv5=document.getElementById("canvas5").getContext('2d')
+		//清除画板
+		cv5.clearRect(0,0,500,500)
+		//猴头
+		cv5.beginPath()
+		cv5.arc(250,250,200,0,360,false)
+		var g5=cv5.createRadialGradient(250,250,0,250,250,200)
+		g5.addColorStop(0,"white")
+		g5.addColorStop(1,"#bc6a12")
+		cv5.fillStyle=g5
+		cv5.fill()
+		cv5.closePath()
+		cv5.fillStyle="#eebb84"
+		cv5.beginPath()
+		cv5.arc(250,220,150,0,90,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.beginPath()
+		cv5.arc(250,250,180,0*Math.PI,1*Math.PI,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.beginPath()
+		cv5.arc(90,250,20,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.beginPath()
+		cv5.arc(410,250,20,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		//眼
+		cv5.fillStyle="red"
+		cv5.beginPath()
+		cv5.arc(200,200,60,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.beginPath()
+		cv5.arc(300,200,60,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		//眼珠·
+		cv5.save()
+		cv5.translate(200,200)
+		cv5.rotate(m*4*Math.PI/180)
+		cv5.fillStyle="black"
+		cv5.beginPath()
+		cv5.arc(20,0,20,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.restore()
+		cv5.save()
+		cv5.beginPath()
+		cv5.translate(300,200)
+		cv5.rotate(m*4*Math.PI/180)
+		cv5.fillStyle="black"
+		cv5.arc(20,0,20,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		cv5.restore()
+		//嘴
+		cv5.fillStyle="white"
+		cv5.beginPath()
+		cv5.arc(250,260,160,0,1*Math.PI)
+		cv5.closePath()
+		cv5.fill()
+		cv5.fillStyle="black"
+		cv5.beginPath()
+		cv5.moveTo(117,350)
+		cv5.lineTo(383,350)
+		cv5.closePath()
+		cv5.stroke()
+		//鼻子
+		var g6=cv5.createRadialGradient(250,280,0,250,280,50)
+		g6.addColorStop(0,"white")
+		g6.addColorStop(1,"#f23027")
+		cv5.fillStyle=g6
+		cv5.beginPath()
+		cv5.arc(250,280,50,0,360,false)
+		cv5.fill()
+		cv5.closePath()
+		//三角形
+		cv5.fillStyle="#bc6a12"
+		cv5.beginPath()
+		cv5.moveTo(250,80)
+		cv5.lineTo(230,70)
+		cv5.lineTo(270,70)
+		cv5.lineTo(250,80)
+		cv5.fill()
+		cv5.closePath()
+		//耳朵
+		cv5.beginPath()
+		cv5.arc(460,250,50,1.4*Math.PI,0.6*Math.PI)
+		cv5.closePath()
+		cv5.fill()
+		cv5.fillStyle="#f4af7c"
+		cv5.beginPath()
+		cv5.arc(460,250,45,1.4*Math.PI,0.6*Math.PI)
+		cv5.closePath()
+		cv5.fill()
+		cv5.save()
+		cv5.translate(250,250)
+		cv5.rotate(180*Math.PI/180)
+		cv5.fillStyle="#bc6a12"
+		cv5.beginPath()
+		
+		cv5.arc(210,0,50,1.4*Math.PI,0.6*Math.PI)
+		cv5.closePath()
+		
+		cv5.fill()
+		cv5.fillStyle="#f4af7c"
+		cv5.beginPath()
+		cv5.arc(210,0,45,1.4*Math.PI,0.6*Math.PI)
+		cv5.closePath()
+		cv5.fill()
+		cv5.restore()
+		m++
+	}
+	setInterval(eyemove,10)
+</script>
+<canvas id="canvas3" style=" position:absolute; top:758px; left:721px; width:446px; height:290px; background-color:#003" class="hidden">你的浏览器不支持canvas标签</canvas>
+<script>
+	var cv3=document.getElementById("canvas3").getContext('2d')
+	function drawtrack()
+	{
+		for(var i=0;i<7;i++)
+		{
+			cv3.beginPath()
+			cv3.arc(155,80,i*11,0,360,false)
+			cv3.strokeStyle="yellow"
+			cv3.lineWidth=1
+			cv3.stroke()
+			cv3.closePath()
+		}	
+	}
+	drawtrack()
+	
+		function star(x,y,cycle,scolor,ecolor,r)
+		{
+			this.r=r
+			this.x=x
+			this.y=y
+			this.cycle=cycle
+			this.scolor=scolor
+			this.ecolor=ecolor
+			this.color=null
+			this.num=0
+			this.draw=function()
+				      {
+				
+						cv3.save()
+						cv3.translate(155,80)
+						cv3.rotate(this.num*this.cycle*Math.PI/180)
+						cv3.beginPath()
+						cv3.arc(this.x,this.y,this.r,0,360,false)
+						this.color=cv3.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r)
+						this.color.addColorStop(0,scolor)
+						this.color.addColorStop(1,ecolor)
+						cv3.fillStyle=this.color
+						cv3.fill()
+						cv3.closePath()
+						cv3.restore()
+						this.num++
+					  }	
+			
+		}
+		function sun()
+		{
+			star.call(this,0,0,0,"#f20a10","#f6a509",5)	
+		}
+		function red()
+		{
+			star.call(this,0,-11,1,"white","red",2)	
+		}
+		function yellow()
+		{
+			star.call(this,0,-22,0.9,"white","yellow",4)	
+		}
+		function pink()
+		{
+			star.call(this,0,-33,0.8,"white","pink",3)	
+		}
+		function green()
+		{
+			star.call(this,0,-44,0.7,"white","green",5)	
+		}
+		function blue()
+		{
+			star.call(this,0,-55,0.6,"white","#2961b6",4)	
+		}
+		function org()
+		{
+			star.call(this,0,-66,0.5,"white","#ec842f",3)	
+		}
+		var Sun=new sun()
+			var Red=new red()
+			var Yellow=new yellow()
+			var Pink =new pink()
+			var Green=new green()
+			var Blue=new blue()
+			var Org=new org()
+			
+		function move()
+		{
+			cv3.clearRect(0,0,400,400)
+			//drawtrack()
+			cv3.beginPath()
+			//cv3.arc(155,80,6*11,0,360,false)
+			cv3.strokeStyle="white"
+			cv3.lineWidth=1
+			cv3.stroke()
+			cv3.closePath()
+			Sun.draw()
+			Red.draw()
+			Yellow.draw()
+			Pink.draw()
+			Green.draw()
+			Blue.draw()
+			Org.draw()
+			
+		}
+		
+		setInterval(move,30)
+		
+	//var  video=document.getElementById("video")
+//	var erocb=function()
+//	{
+//		console.log('sth wrong!');	
+//	}
+//	
+//	if(navigator.getUserMedia)
+//	{
+//		navigator.getUserMedia(
+//		{
+//			"video":true	
+//		},
+//		function(stream)
+//		{
+//			video.src=stream;
+//			video.play();	
+//		},erocb)	
+//	}
+//	else if(navigator.webkitGetUserMedia)
+//	{
+//		navigator.webkitGetUserMedia({"video":true},function(stream)
+//													{
+//														video.src=window.webkitURL.createObjectURL(stream);
+//														video.play();	
+//													},erocb);	
+//	}
+</script>
+	<canvas style=" background-color:#063; position:absolute; top:1120px; left:541px" width="800px" height="500px" id="canvas4" class="hidden">
+		你的浏览器不支持canvas标签
+	</canvas>
+    <script>
+		//3ds下半部轮廓
+		var cvs4=document.getElementById("canvas4")
+		var cv4=cvs4.getContext('2d')
+		cv4.save()
+		cv4.translate(400,280)
+		cv4.rotate(180*Math.PI/180)
+		cv4.beginPath()
+		cv4.arc(-250,-100,50,0,360,false)
+		cv4.closePath()
+		cv4.fill()
+		cv4.beginPath()
+		cv4.arc(250,-100,50,0,360,false)
+		cv4.closePath()
+		cv4.fill()
+		cv4.fillRect(-250,-150,500,50)
+		cv4.fillRect(-300,-100,600,300)
+		cv4.restore()
+		//3ds下屏幕
+		cv4.fillStyle="gray"
+		cv4.fillRect(225,120,350,250)
+		//左摇杆部分
+		cv4.beginPath()
+		cv4.fillStyle="#242323"
+		
+		cv4.arc(160,170,50,0,360,false)
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.fillStyle="black"
+		cv4.arc(160,170,47,0,360,false)
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		var g4=cv4.createLinearGradient(160,170,0,160,180,32)
+		g4.addColorStop(1,"white")
+		g4.addColorStop(0,"gray")
+		cv4.fillStyle=g4
+		cv4.arc(160,170,32,0,360,false)
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		var g4=cv4.createLinearGradient(160,170,0,160,170,27)
+		g4.addColorStop(1,"black")
+		g4.addColorStop(0,"#cccecf")
+		cv4.fillStyle=g4
+		cv4.arc(160,170,27,0,360,false)
+		cv4.fill()
+		cv4.closePath()
+		//上下左右键
+		for(var i=0;i<4;i++)
+		{
+			cv4.save()
+			cv4.fillStyle="#353637"
+			cv4.translate(160,280)
+			cv4.rotate(i*90*Math.PI/180)
+			cv4.fillRect(-11,-33,22,33)
+			cv4.restore()	
+		}
+		for(var i=0;i<4;i++)
+		{
+			cv4.save()
+			cv4.fillStyle="#e5e9ec"
+			cv4.translate(160,280)
+			cv4.rotate(i*90*Math.PI/180)
+			cv4.fillRect(-10,-31,20,31)
+			cv4.restore()	
+		}
+		for(var i=0;i<4;i++)
+		{
+			cv4.save()
+			cv4.strokeStyle="black"
+			cv4.translate(160,280)
+			cv4.rotate(i*90*Math.PI/180)
+			cv4.beginPath()
+			cv4.moveTo(0,-20)
+			cv4.lineTo(0,-10)
+			cv4.closePath()
+			cv4.stroke()
+			cv4.restore()	
+		}
+		//功能键XYAB
+		for(var i=0;i<4;i++)
+		{
+			cv4.save()
+			cv4.fillStyle="#353637"
+			cv4.translate(637,200)
+			cv4.rotate(i*90*Math.PI/180)
+			cv4.beginPath()
+			cv4.arc(-30,0,13,0,360,false)
+			cv4.closePath()
+			cv4.fill()
+			cv4.restore()	
+		}
+		for(var i=0;i<4;i++)
+		{
+			cv4.save()
+			cv4.fillStyle="#e5e9ec"
+			cv4.translate(637,200)
+			cv4.rotate(i*90*Math.PI/180)
+			cv4.beginPath()
+			cv4.arc(-30,0,11,0,360,false)
+			cv4.closePath()
+			cv4.fill()
+			cv4.restore()	
+		}
+		//功能键字体
+		cv4.fillStyle="red"
+		cv4.font="15px Arial"	
+		cv4.fillText("A",663,205)
+		cv4.fillStyle="#f3a319"
+		cv4.font="15px Arial"	
+		cv4.fillText("B",633,235)
+		cv4.fillStyle="blue"
+		cv4.font="15px Arial"	
+		cv4.fillText("X",633,175)
+		cv4.fillStyle="green"
+		cv4.font="15px Arial"	
+		cv4.fillText("Y",603,205)
+		//右摇杆部分
+		cv4.beginPath()
+		cv4.arc(605,130,11,0,360,false)
+		cv4.fillStyle="#cccecf"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(606,130,10,0,360,false)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		//select,start键
+		cv4.beginPath()
+		cv4.arc(600,330,5,0,360,false)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(600,350,5,0,360,false)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(601,330,4.5,0,360,false)
+		cv4.fillStyle="white"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(601,350,4.5,0,360,false)
+		cv4.fillStyle="white"
+		cv4.fill()
+		cv4.closePath()
+		//home键
+		cv4.beginPath()
+		cv4.arc(390,400,15,0,360,false)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(430,400,15,0,360,false)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.fillRect(390,385,40,30)
+		cv4.fillStyle="gray"
+		cv4.fill()
+		cv4.closePath()
+		cv4.arc(392,401,15,0,360,false)
+		cv4.fillStyle="white"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.arc(432,401,15,0,360,false)
+		cv4.fillStyle="white"
+		cv4.fill()
+		cv4.closePath()
+		cv4.beginPath()
+		cv4.fillRect(392,386,40,30)
+		cv4.fillStyle="white"
+		cv4.fill()
+		cv4.closePath()
+    </script>
+    <canvas width="350px" height="250px" style=" background-color:#27f1cd; position:absolute; top:1240px; left:766px" id="canvas6" class="hidden">你的浏览器不支持canvas标签</canvas>
+    <script>
+	    var isDown=false
+		var canvas6=document.getElementById("canvas6")
+    	var cv6=canvas6.getContext('2d')
+		cv6.strokeStyle="blue"
+		cv6.lineWidth=10
+		canvas6.onmousedown=Down
+		canvas6.ontouchstart=Down
+					function Down(evt)
+					  {
+							evt=window.event||evt
+							var startX=evt.pageX-this.offsetLeft
+							var startY=evt.pageY-this.offsetTop
+							cv6.beginPath()
+							cv6.moveTo(startX,startY)
+							isDown=true
+					   }
+		canvas6.onmousemove=Move
+		canvas6.ontouchmove=Move
+						function Move(evt)
+						{
+							evt=window.event||evt
+							var endX=evt.pageX-this.offsetLeft
+							var endY=evt.pageY-this.offsetTop
+							if(isDown)
+							{
+								cv6.lineTo(endX,endY)
+								cv6.stroke()
+							}
+				
+							//cv6.closePath()
+						}
+		canvas6.onmouseup=Up
+		canvas6.ontouchend=Up
+							function Up()
+							{
+								isDown=false	
+							}
+		canvas6.onmouseover=Over
+		canvas6.ontouchover=Over
+							function Over()
+							{
+								isDown=false	
+							}
+    </script>
+    <canvas id="canvas7" width="1315px" height="600px" style=" background-color:#003; position:absolute; top:1630px; left:25px" class="hidden"></canvas>
+    <script>
+	
+		var y=750
+		var a=6
+		function firemove(x,color)
+		{
+			var cv7=document.getElementById("canvas7").getContext('2d')
+				cv7.clearRect(0,0,1315,600)
+			//月亮
+			cv7.fillStyle="#f89d0e"
+			cv7.beginPath()
+			cv7.arc(1200,150,60,0,360,false)
+			cv7.closePath()
+			cv7.fill()
+			cv7.fillStyle="#003"
+			cv7.beginPath()
+			cv7.arc(1130,120,50,0,360,false)
+			cv7.closePath()
+			cv7.fill()
+			if(y>250)
+			{
+				
+				//var color=["red","blue","yellow","pink"
+//				r=new random()
+//				var i=r.next(0,6)
+				cv7.strokeStyle=color
+				cv7.lineWidth=2
+				cv7.beginPath()
+				cv7.moveTo(x,y)
+				cv7.lineTo(x,y-60)
+				cv7.closePath()
+				cv7.stroke()
+				y--	
+			}
+			else 
+				y=250
+			if(y==250)
+			{
+				if(a==200)
+				{
+					cv7.clearRect(0,0,1315,600)
+					a=2
+				}
+				cv7.strokeStyle=color
+				cv7.fillStyle=color
+				cv7.beginPath()
+				cv7.arc(x,180,a,0,360,false)
+				cv7.stroke()
+				cv7.closePath()
+				
+				cv7.beginPath()
+				cv7.arc(x,180,20,0,360,false)
+				cv7.stroke()
+				cv7.fill()
+				cv7.closePath()
+				a++
+			}
+			cv7.fillRect(110,400,100,500)
+			cv7.fillRect(210,300,100,500)
+			cv7.fillRect(310,450,100,500)
+			//房
+			cv7.fillStyle="black"
+			cv7.fillRect(100,410,100,490)
+			cv7.fillRect(200,310,90,490)
+			cv7.fillRect(300,460,90,490)
+			cv7.fillStyle="yellow"
+		    //灯
+			cv7.fillRect(310+0,475,10,20)
+			cv7.fillRect(310+40,475,10,20)
+			cv7.fillRect(310+60,475,10,20)
+			cv7.fillRect(310+0,530,10,20)
+			cv7.fillRect(310+20,530,10,20)
+			cv7.fillRect(310+60,530,10,20)
+			cv7.fillRect(310+0,585,10,20)
+			cv7.fillRect(310+20,585,10,20)
+			cv7.fillRect(310+40,585,10,20)
+			cv7.fillRect(310+60,585,10,20)
+			cv7.fillRect(110+40,430,10,20)
+			cv7.fillRect(110+60,430,10,20)
+			cv7.fillRect(110+20,490,10,20)
+			cv7.fillRect(210+20,490,10,20)
+			cv7.fillRect(210+60,400,10,20)
+		}
+		//烟花
+    	a= setInterval("firemove(150,'red')",40)
+		b=setInterval("firemove(250,'yellow')",25)
+		c=setInterval("firemove(400,'pink')",5)
+		d=setInterval("firemove(500,'green')",30)
+		e=setInterval("firemove(600,'#00f3b7')",50)
+		f=setInterval("firemove(700,'#c916f0')",10)
+		g=setInterval("firemove(800,'#53f016')",45)
+		h=setInterval("firemove(900,'#560fd9')",35)
+		j=setInterval("firemove(1000,'#560fd9')",60)
+		i=setInterval("firemove(1100,'red')",55)
+		k=setInterval("firemove(1200,'orange')",5705)
+    </script>
+    <canvas id="canvas8" style=" background:#333; position:absolute; top:0px; left:25px;" width="1315px" height="600px">你的浏览器不支持canvas标签</canvas>
+    <script>
+    	var canvas8=document.getElementById("canvas8")
+		var cv8=canvas8.getContext("2d")
+		var x=550
+		var y=200
+		var password=""
+		var pwd=""
+		var isDown=false
+		var isMove=false
+		var downX
+		var downY
+		var index;
+		var pointX
+		var pointY
+		var startX
+		var startY
+		cv8.lineWidth=4
+		function Arc(x,y,r1,r2)
+		{
+			this.x=x
+			this.y=y
+			this.r1=r1
+			this.r2=r2
+			this.draw=function()
+						{
+							cv8.strokeStyle="black"
+							cv8.fillStyle="black"
+							cv8.beginPath()
+							cv8.arc(this.x,this.y,this.r1,0,360,false)
+							cv8.stroke()
+							cv8.closePath()
+							cv8.beginPath()
+							cv8.arc(this.x,this.y,this.r2,0,360,false)
+							cv8.closePath()	
+							cv8.fill()
+						}
+			this.draw1=function()
+						{
+							cv8.strokeStyle="#7a9630"
+							cv8.fillStyle="#7a9630"
+							cv8.beginPath()
+							cv8.arc(this.x,this.y,this.r1,0,360,false)
+							cv8.stroke()
+							cv8.closePath()
+							cv8.beginPath()
+							cv8.arc(this.x,this.y,this.r2,0,360,false)
+							cv8.closePath()	
+							cv8.fill()	
+						}
+		}
+		function R1()
+		{
+			Arc.call(this,x,y,30,10)	
+		}
+		function R2()
+		{
+			Arc.call(this,100+x,y,30,10)	
+		}
+		function R3()
+		{
+			Arc.call(this,200+x,y,30,10)	
+		}
+		function R4()
+		{
+			Arc.call(this,x,100+y,30,10)	
+		}
+		function R5()
+		{
+			Arc.call(this,100+x,100+y,30,10)	
+		}
+		function R6()
+		{
+			Arc.call(this,200+x,100+y,30,10)	
+		}
+		function R7()
+		{
+			Arc.call(this,x,200+y,30,10)	
+		}
+		function R8()
+		{
+			Arc.call(this,100+x,200+y,30,10)	
+		}
+		function R9()
+		{
+			Arc.call(this,200+x,200+y,30,10)	
+		}
+			var r1=new R1()
+			var r2=new R2()
+			var r3=new R3()
+			var r4=new R4()
+			var r5=new R5()
+			var r6=new R6()
+			var r7=new R7()
+			var r8=new R8()
+			var r9=new R9()
+		function Draw()
+		{
+			cv8.clearRect(0,0,1315,600)
+			r1.draw()
+			r2.draw()
+			r3.draw()
+			r4.draw()
+			r5.draw()
+			r6.draw()
+			r7.draw()
+			r8.draw()
+			r9.draw()
+			canvas8.onmousemove=DrawGreen
+			canvas8.ontouchmove=DrawGreen	
+			drawTip()
+		}
+		function operaPwd()
+		{
+			var p=password.split('')
+			for(var i=0;i<p.length+1;i++)
+			{
+				if(p[i]!=p[i+1])
+				{
+					pwd+=p[i]+=p[i+1]
+				}
+			}
+		}
+		function JudgePwd()
+		{
+			if(pwd=="6558899undefined")
+			{
+				document.getElementById("input").className="show"
+				canvas8.style.backgroundColor="#35813a"
+				this.window.scrollTo(0,600)					
+				for(var i=1;i<=7;i++)
+				{
+					document.getElementById("canvas"+i).className="show"	
+				}
+			}
+			else
+			{
+				canvas8.style.backgroundColor="#d83050"	
+			}
+		}
+		Draw()
+		function getPoint(number)
+		{
+			var evt=window.event
+			var endX=evt.pageX-this.offsetLeft
+			var endY=evt.pageY-this.offsetTop
+			switch(number)
+			{
+				case 1:pointX=x;pointY=y;break
+				case 2:pointX=x+100;pointY=y;break
+				case 3:pointX=x+200;pointY=y;break
+				case 4:pointX=x;pointY=y+100;break
+				case 5:pointX=x+100;pointY=y+100;break
+				case 6:pointX=x+200;pointY=y+100;break
+				case 7:pointX=x;pointY=y+200;break
+				case 8:pointX=x+100;pointY=y+200;break
+				case 9:pointX=x+200;pointY=y+200;break
+				case 0:pointX=endX;pointY=endY;break
+				
+			}	
+		}
+		function getIndex(endX,endY)
+		{
+				if(endX>x-30&&endX<x+30&&endY<y-20&&endY>y-80)
+				{
+					return 1	
+				}
+				else if(endX>x+70&&endX<x+130&&endY<y-20&&endY>y-80)
+				{
+					return 2	
+				}
+				else if(endX>x+170&&endX<x+230&&endY<y-20&&endY>y-80)
+				{
+					return 3	
+				}
+				else if(endX>x-30&&endX<x+30&&endY>y+20&&endY<y+80)
+				{
+					return 4	
+				}
+				else if(endX>x+70&&endX<x+130&&endY>y+20&&endY<y+80)
+				{
+					return 5
+				}
+				else if(endX>x+170&&endX<x+230&&endY>y+20&&endY<y+80)
+				{
+					return 6	
+				}
+				else if(endX>x-30&&endX<x+30&&endY<y+180&&endY>y+120)
+				{
+					return 7
+				}
+				else if(endX>x+70&&endX<x+130&&endY<y+180&&endY>y+120)
+				{
+					return 8	
+				}
+				else if(endX>x+170&&endX<x+230&&endY<y+180&&endY>y+120)
+				{
+					return 9	
+				}
+				else
+				{
+					return 0
+				}	
+		}
+		
+		canvas8.onmousemove= DrawGreen
+		canvas8.ontouchmove= DrawGreen
+		function DrawGreen(evt)
+		{
+			evt=window.event||evt
+			var endX=evt.pageX-this.offsetLeft
+			var endY=evt.pageY-this.offsetTop
+			index= getIndex(endX,endY)
+			if(!isDown)
+			{
+				switch(index)
+				{
+					case 1: r1.draw1()
+					break	
+					case 2:r2.draw1()
+					break	
+					case 3:r3.draw1()
+					break	
+					case 4:r4.draw1()
+					break	
+					case 5:r5.draw1()
+					break	
+					case 6:r6.draw1()
+					break	
+					case 7:r7.draw1()
+					break	
+					case 8:r8.draw1()
+					break	
+					case 9:r9.draw1()
+					break
+					case 0:Draw()
+					break	
+				}
+			}
+			else
+			{
+				//getPoint(0)
+//				var X=pointX
+//			    var	Y=pointY
+				cv8.stroke()
+				cv8.lineTo(endX,endY)
+				switch(index)
+				{
+					case 1:r1.draw1();password+=index
+					break	
+					case 2:r2.draw1();password+=index
+					break	
+					case 3:r3.draw1();password+=index
+					break	
+					case 4:r4.draw1();password+=index
+					break	
+					case 5:r5.draw1();password+=index
+					break	
+					case 6:r6.draw1();password+=index
+					break	
+					case 7:r7.draw1();password+=index
+					break	
+					case 8:r8.draw1();password+=index
+					break	
+					case 9:r9.draw1();password+=index
+					break	
+				}
+			}
+			
+		}
+		function Rebackground()
+		{
+			canvas8.style.backgroundColor="#333"	
+		}
+		canvas8.onmouseup= Up
+		canvas8.ontouchend= Up
+		function Up(evt)
+		{
+			canvas8.onmousemove=null
+			canvas8.ontouchmove=null
+			cv8.closePath()
+			evt=window.event||evt
+			var endX=evt.pageX-this.offsetLeft
+			var endY=evt.pageY-this.offsetTop
+			index= getIndex(endX,endY)
+			isDown=false
+			setTimeout(Draw,2000)
+			operaPwd()
+			JudgePwd()
+			setTimeout(Rebackground,5000)
+			//alert(pwd)
+			password=""
+			pwd=""
+		}
+		canvas8.onmousedown=moveLine
+		canvas8.ontouchstart=moveLine 
+		function moveLine()
+		{
+			isDown=true
+			var evt=window.event||evt
+			var touch=evt.targetTouchs[0]
+			
+			evt.preventDefault()
+			var endX=evt.pageX-this.offsetLeft
+			var endY=evt.pageY-this.offsetTop
+				isDown=true
+				//getPoint(index)
+				cv8.strokeStyle="#7a9630"
+				cv8.beginPath()
+				cv8.moveTo(endX,endY)
+				//cv8.moveTo(pointX,pointY)
+		}
+		drawTip()
+		function drawTip()
+		{
+			cv8.fillStyle="blue"
+			cv8.font="20px Arial"
+			cv8.fillText("TIP：6-5-8-9",1000,500)
+		}
+    </script>
+    <input type="button" value="隐藏" style="position:absolute; top:2200px; border:#CC6; background-color:#930; left:1300px; font-family:'仿宋'; font-size:20px; " class="hidden" id="input" onClick="Hidden()">
+    <script>
+    	function Hidden()
+		{
+			document.getElementById("input").className="hidden2"
+			for(var i=1; i<=7;i++)
+			{
+				document.getElementById("canvas"+i).className="hidden2"	
+			}	
+		}
+    </script>
+</body>
+</html>
