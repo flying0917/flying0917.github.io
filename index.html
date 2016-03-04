@@ -2,16 +2,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
 <title>html5练习</title>
-<meta name="viewport" content="user-scalable=no">
+<meta name="viewport" content="user-scalable=no,width=1315">
 </head>
 
 <style>
+    
 	.hidden
 	{
-		display:none;}
+		opacity:0;}
+	.hidden2
+	{
+		opacity:0;
+		-webkit-animation:notShow 2s}
+	@-webkit-keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}}
 	.show
 	{
-		display:block;}
+		-webkit-animation:Show 2s;}
+	@-webkit-keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}}
 </style>
 <body style="width:auto; margin:0px auto; padding:0px center">
 <canvas width="500px" height="500px" id="canvas1" style=" background-color:#303; position:absolute; left:25px; top:600px" class="hidden">你的浏览器不支持canvas标签</canvas>
@@ -957,11 +970,12 @@
 		{
 			if(pwd=="6558899undefined")
 			{
-				document.getElementById("input").style.display="block"
+				document.getElementById("input").className="show"
 				canvas8.style.backgroundColor="#35813a"
+				this.window.scrollTo(0,600)					
 				for(var i=1;i<=7;i++)
 				{
-					document.getElementById("canvas"+i).style.display="block"	
+					document.getElementById("canvas"+i).className="show"	
 				}
 			}
 			else
@@ -1127,8 +1141,10 @@
 		canvas8.ontouchstart=moveLine 
 		function moveLine()
 		{
-			
+			isDown=true
 			var evt=window.event||evt
+			var touch=evt.targetTouchs[0]
+			
 			evt.preventDefault()
 			var endX=evt.pageX-this.offsetLeft
 			var endY=evt.pageY-this.offsetTop
@@ -1144,17 +1160,17 @@
 		{
 			cv8.fillStyle="blue"
 			cv8.font="20px Arial"
-			cv8.fillText("提示：6-5-8-9",1000,500)
+			cv8.fillText("TIP：6-5-8-9",1000,500)
 		}
     </script>
     <input type="button" value="隐藏" style="position:absolute; top:2200px; border:#CC6; background-color:#930; left:1300px; font-family:'仿宋'; font-size:20px; " class="hidden" id="input" onClick="Hidden()">
     <script>
     	function Hidden()
 		{
-			document.getElementById("input").style.display="none"
+			document.getElementById("input").className="hidden2"
 			for(var i=1; i<=7;i++)
 			{
-				document.getElementById("canvas"+i).style.display="none"	
+				document.getElementById("canvas"+i).className="hidden2"	
 			}	
 		}
     </script>
