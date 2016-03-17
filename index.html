@@ -90,38 +90,130 @@
     .hiddencanvas8
 	{
 		top:-600px;
+		animation:canvasmoveUp 1s;
 		-webkit-animation:canvasmoveUp 1s;
+		-moz-animation:canvasmoveUp 1s;
+		-ms-animation:canvasmoveUp 1s;
+		-o-animation:canvasmoveUp 1s;
 	}
 	.showcanvas8
 	{
 		top:0px;
+		animation:canvasmoveDown 1s;
 		-webkit-animation:canvasmoveDown 1s;
+		-moz-animation:canvasmoveDown 1s;
+		-o-animation:canvasmoveDown 1s;
+		-ms-animation:canvasmoveDown 1s;
 	}
 	.updiv
 	{
 		top:0px;
+		animation:divmoveUp 1s;
 		-webkit-animation:divmoveUp 1s;
+		-moz-animation:divmoveUp 1s;
+		-0-animation:divmoveUp 1s;
+		-ms-animation:divmoveUp 1s;
 	}
 	.downdiv
 	{
 		top:600px;
+		animation:divmoveDown 1s;
 		-webkit-animation:divmoveDown 1s;
+		-o-animation:divmoveDown 1s;
+		-moz-animation:divmoveDown 1s;
+		-ms-animation:divmoveDown 1s;
+	}
+	@keyframes divmoveUp
+	{
+		from{top:600px;}
+		to{top:0px;}
 	}
 	@-webkit-keyframes divmoveUp
 	{
 		from{top:600px;}
 		to{top:0px;}
 	}
+	@-moz-keyframes divmoveUp
+	{
+		from{top:600px;}
+		to{top:0px;}
+	}
+	@-o-keyframes divmoveUp
+	{
+		from{top:600px;}
+		to{top:0px;}
+	}
+	@-ms-keyframes divmoveUp
+	{
+		from{top:600px;}
+		to{top:0px;}
+	}
+	@keyframes divmoveDown
+	{
+		from{top:0px;}
+		to{top:600px;}
+	}
 	@-webkit-keyframes divmoveDown
 	{
 		from{top:0px;}
 		to{top:600px;}
+	}
+	@-moz-keyframes divmoveDown
+	{
+		from{top:0px;}
+		to{top:600px;}
+	}
+	@-o-keyframes divmoveDown
+	{
+		from{top:0px;}
+		to{top:600px;}
+	}
+	@-ms-keyframes divmoveDown
+	{
+		from{top:0px;}
+		to{top:600px;}
+	}
+	@keyframes canvasmoveUp
+	{
+		from{top:0px;}
+		to{top:-600px;}
+	}
+	@-o-keyframes canvasmoveUp
+	{
+		from{top:0px;}
+		to{top:-600px;}
+	}
+	@-moz-keyframes canvasmoveUp
+	{
+		from{top:0px;}
+		to{top:-600px;}
+	}
+	@-ms-keyframes canvasmoveUp
+	{
+		from{top:0px;}
+		to{top:-600px;}
 	}
 	@-webkit-keyframes canvasmoveUp
 	{
 		from{top:0px;}
 		to{top:-600px;}
 	}
+	@keyframes canvasmoveDown
+	{
+		from{top:-600px;}
+		to{top:0px;}}
+	@-moz-keyframes canvasmoveDown
+	{
+		from{top:-600px;}
+		to{top:0px;}}
+	@-o-keyframes canvasmoveDown
+	{
+		from{top:-600px;}
+		to{top:0px;}}
+	@-ms-keyframes canvasmoveDown
+	{
+		from{top:-600px;}
+		to{top:0px;}}
 	@-webkit-keyframes canvasmoveDown
 	{
 		from{top:-600px;}
@@ -134,9 +226,33 @@
 	.hidden2
 	{
 		opacity:0;
-		-webkit-animation:notShow 2s;;
+		animation:notShow 2s;
+		-moz-animation:notShow 2s;
+		-ms-animation:notShow 2s;
+		-o-animation:notShow 2s;
+		-webkit-animation:notShow 2s;
+	}
+	@keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}
 	}
 	@-webkit-keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}
+	}
+	@-moz-keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}
+	}
+	@-ms-keyframes notShow
+	{
+		from{opacity:1;}
+		to{opacity:0;}
+	}
+	@-o-keyframes notShow
 	{
 		from{opacity:1;}
 		to{opacity:0;}
@@ -144,7 +260,31 @@
 	.show
 	{
 		display:block;
+		animation:Show 2s;
+		-moz-animation:Show 2s;
+		-o-animation:Show 2s;
+		-ms-animation:Show 2s;
 		-webkit-animation:Show 2s;
+	}
+	@keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}
+	}
+	@-ms-keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}
+	}
+	@-o-keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}
+	}
+	@-moz-keyframes Show
+	{
+		from{opacity:0;}
+		to{opacity:1;}
 	}
 	@-webkit-keyframes Show
 	{
@@ -1223,6 +1363,7 @@
         //			    var	Y=pointY
                         cv8.stroke()
                         cv8.lineTo(endX,endY)
+						cv8.restore()
                         switch(index)
                         {
                             case 1:r1.draw1();password+=index
@@ -1288,7 +1429,8 @@
 				document.getElementById("canvas8").addEventListener('mousedown',function(e)
 																				{
 																					e.preventDefault()
-																					moveLine(e.pageX,e.pageY)	
+																					moveLine(e.pageX,e.pageY)
+															
 																				},false)
 				document.getElementById("canvas8").addEventListener('touchstart',function(e)
 																				{
@@ -1304,6 +1446,8 @@
                         isDown=true
                         //getPoint(index)
                         cv8.strokeStyle="#7a9630"
+						cv8.lineCap="round"
+						cv8.save()
                         cv8.beginPath()
                         cv8.moveTo(endX,endY)
                         //cv8.moveTo(pointX,pointY)
