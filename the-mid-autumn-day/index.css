@@ -1,0 +1,231 @@
+body,html,div,ul,img,li
+{
+    padding:0;
+    margin:0;
+}
+body,html,.content,.filter
+{
+    width:100%;
+    height:100%;
+}
+.content
+{
+    background-color:#231d33;
+    background-image:url(image/star.png);
+}
+.filter
+{
+    position: relative;
+    background-image:radial-gradient(at 50% 50%, rgba(255, 192, 89, 0.45), #231d33);
+    overflow:hidden;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.filter-more
+{
+    background-image:radial-gradient(at 50% 50%, rgba(255, 192, 89, 0.61), #231d33);
+}
+.moon
+{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background-color:#FFC059;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:200px;
+    margin:auto;
+    text-align: center;
+    overflow:hidden;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.moon-big
+{
+    width:400px;
+    height:400px;
+}
+.moon-router
+{
+    width:100%;
+    height:100%;
+    position:relative;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.moon-router-2
+{
+    margin-left:-100%;
+}
+
+.rabbit
+{
+    width:30%;
+    position:absolute;
+    bottom:0;
+    top:120%;
+    left:0;
+    right:0;
+    margin:auto;
+    display:inline-block;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+
+}
+.women
+{
+    width:30%;
+    position:absolute;
+    bottom:0;
+    top:70%;
+    left:20%;
+    right:0;
+    margin:auto;
+    display:inline-block;
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -ms-transition: all 2s;
+    -o-transition: all 2s;
+    transition: all 2s;
+
+}
+.rabbit-show
+{
+    top:92.5%;
+}
+.flag
+{
+    float:left;
+    display:block;
+    margin-top:20%;
+    margin-left:20%;
+    width:8%;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+.earth
+{
+    position:absolute;
+    width:800px;
+    padding-bottom:800px;
+    height:0;
+    background-color:#0a2665;
+    border-radius: 50%;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin:auto;
+    margin-bottom:-550px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.earth img
+{
+    width:100%;
+    opacity: .5;
+}
+.earth-big
+{
+    width:650px;
+    padding-bottom:650px;
+    bottom:-100%;
+}
+
+.rocket
+{
+    display:block;
+    float:left;
+    margin-top:10%;
+    width:8%;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}
+
+.right
+{
+    width:10%;
+    padding-bottom:10%;
+    height:0;
+    border-radius:50%;
+    background-color:#e29f31;
+    position:absolute;
+    right:20px;
+    top:50%;
+    text-align: center;
+    cursor: pointer;
+}
+.left
+{
+    width:10%;
+    padding-bottom:10%;
+    height:0;
+    border-radius:50%;
+    background-color:#e29f31;
+    position:absolute;
+    left:110%;
+    top:50%;
+    text-align: center;
+    cursor: pointer;
+}
+.tree
+{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    right:-100%;
+}
+.watch-tree
+{
+    left:120%;
+}
+
+.text
+{
+    opacity: .8;
+    font-family:宋体;
+    margin:50px;
+    width:200px;
+
+    height:50%;
+    line-height: 1.5;
+    writing-mode: tb-rl;
+    position:absolute;
+    top:0;
+    color:white;
+    font-size:40px;
+}
+.zhang
+{
+    width:30px;
+    height:30px;
+    border:2px solid red;
+    border-radius:4px;
+    color:red;
+    line-height: 1;
+    font-size:14px;
+}
